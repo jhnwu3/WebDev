@@ -1,0 +1,118 @@
+<style>
+.collapse.show {
+  visibility: visible;
+}
+</style>
+<%# require 'date' #require if not already required %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <%link_to"user_home", user_home_path, class: "nav-link" %>
+          <a class="nav-link active" aria-current="page" href="/user_home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user_group">Groups</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/score">Average Scores</a>
+        </li>
+        <% if @user %>
+          <li class="nav-item">
+            <a class="nav-link"> Logged in as <%= @user.email %>   
+             </a>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Logout", logout_path, method: :delete %>
+          </li>
+         <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+<div class="content">
+    <h1 class = "d-flex align-items-center justify-content-center"><%=@user.name %>'s Evaluations</h1>
+    <p>Welcome back!</p>
+    <br>
+    <h2 class = "align-items-center justify-content-center"> Today's Date: <%= Date.current %> </h2>
+    <br>
+    <br>
+    <h3>Evaluations To-do</h3>
+  <!-- Print out all projects that are due at this moment based on project due date -->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% @projects.each do |project, group| %>
+      <% if !(project.date.to_date.past?)%>
+      <%# if Date.current <= DateTime.strptime(project.date, "%D") %>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h5> Project <%= project.projectname %> </h5>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <table class="table">
+            <thead>
+              <tr>
+                <th>Group Name</th>
+                <th colspan="3"></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+              <tbody>
+                <tr>
+                  <td> <%= group.name  %></td>
+                  <td> <%= link_to 'Edit Evaluations', user_eval_path(pid: project.id),class: "btn btn-secondary" %>  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+    </div>
+        
+    <!-- Print out all projects that are not due at this moment based on project due date -->
+
+    <h3> Past Evaluations </h3>
+     <% @projects.each do |project, group| %>
+      <% if (project.date.to_date.past?)%>
+      <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Project <%= project.projectname %>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <table class="table">
+            <thead>
+              <tr>
+                <th>Group Name</th>
+                <th colspan="3"></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+              <tbody>
+                <tr>
+                  <td> <%= group.name  %></td>
+                  <td> <%= link_to 'View Evaluations', user_view_path(pid: project.id), class: "btn btn-primary" %> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+</div>
+</body>

@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <%link_to"user_home", user_home_path, class: "nav-link" %>
+          <a class="nav-link active" aria-current="page" href="/user_home">Home</a>
+        </li>
+        <% if @user %>
+          <li class="nav-item">
+            <a class="nav-link"> Logged in as <%= @user.email %>   
+             </a>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Logout", logout_path, method: :delete %>
+          </li>
+         <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Evaluations</h1>
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Evaluator</th>
+      <th>Evaluee</th>
+      <th>Context</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evaluations.each do |evaluation| %>
+    <%# if @user.name == %>
+      <tr>
+        <% if User.find(evaluation.senderid).id == @user.id && evaluation.pid == @project.id %>
+          <td><%= User.find(evaluation.senderid).name%></td>
+          <td><%= evaluation.evaluee %></td>
+          <td><%= evaluation.context %></td>
+          <td><%= evaluation.rating %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

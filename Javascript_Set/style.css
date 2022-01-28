@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: fantasy, serif, "Courier New", Courier, monospace;
+  background-color: #bb0000;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+h1 {
+  justify-content: center;
+  display: flex;
+  color: white;
+  padding: 20px 20px 20px 20px;
+}
+
+h2,
+p {
+  color: white;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 15px;
+}
+
+td {
+  background-color: white;
+  border: 5px solid #bfbfbf;
+}
+
+td {
+  height: 100px;
+  width: 55px;
+  vertical-align: center;
+  text-align: center;
+}
+
+th {
+  color: white;
+}
+
+ul {
+  color: red;
+  display: table;
+  margin: 0 auto;
+}
+
+li {
+  padding-bottom: 30px;
+  justify-content: center;
+  display: flex;
+  color: white;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  padding: 10px;
+}
+
+.left {
+  flex: 25%;
+}
+
+.center {
+  flex: 50%;
+}
+
+.right {
+  flex: 25%;
+  visibility: hidden;
+}
+
+.bottom {
+  text-align: center;
+}
+
+.topright {
+  flex: 40%;
+  text-align: center;
+}
+
+.topleft {
+  flex: 60%;
+  text-align: center;
+}
+.return {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#notification {
+  color: white;
+  font-size: 40px;
+}
+
+#deckCount {
+  padding: 0;
+  margin: 0;
+}
+
+#timer {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: white;
+}
+
+#r4 {
+  visibility: hidden;
+}
+button {
+  font-family: fantasy;
+  background-color: black;
+  color: azure;
+}
+#homePage {
+  justify-content: center;
+  display: flex;
+}
+
+#player {
+  font-size: 20px;
+  color: white;
+}

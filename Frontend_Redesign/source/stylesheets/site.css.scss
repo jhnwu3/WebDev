@@ -1,0 +1,98 @@
+
+/* navbar */
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+}
+
+.navbar li a:hover:not(.active) {
+  background-color: #333;
+}
+/* active page color */
+.active {
+  background-color: #bb0000;
+}
+
+
+/* accordion */
+.border {
+  border: 3px solid #CCE4FC;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+  
+details summary::-webkit-details-marker {
+  background: url(https://chaykelly.com/wp-content/uploads/2020/02/Plus.svg) center no-repeat;
+  color: transparent;
+}
+  
+details[open] summary::-webkit-details-marker {
+  background: url(https://chaykelly.com/wp-content/uploads/2020/02/Minus.svg) center no-repeat;
+  color: transparent;
+}
+
+
+
+/* tables */
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #bb0000;
+  color: white;
+}
+
+/* another accordion within research and publications accordion */
+.project2 {
+  border: 3px solid #CCE4FC;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}

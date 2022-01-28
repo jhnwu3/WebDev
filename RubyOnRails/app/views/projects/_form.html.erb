@@ -1,0 +1,33 @@
+<%= form_with(model: project) do |form| %>
+  <% if project.errors.any? %>
+    <div id="alert alert-danger">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :Projectname, 'Project Name' %>
+    <%= form.text_field :projectname, class: "form-control", placeholder: "Game of Set" %>
+  </div>
+
+  <div class="mb-3 ">
+    <%= form.label :projecttype , 'Project Type'%>
+    <%= form.text_field :projecttype, class: "form-control", placeholder: "Tech Groups" %>
+  </div>
+  <br>
+<p>Please enter a valid date in the formate below </p>
+  <div class="mb-3">
+    <%= form.label :date, 'Deadline  ' %>
+    <%= form.text_field :date, class: "form-control", placeholder: "2002-01-02" %>
+  </div>
+
+  <div class="actions mb-3">
+    <%= form.submit "Add Project", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<%= form_with(model: evaluation) do |form| %>
+
+
+   <div class="field">
+    <%= form.label :evaluee %>
+    <%= form.text_area :evaluee%>
+  </div>
+
+  <div class="field">
+    <%= form.label :context %>
+    <%= form.text_area :context %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+  <div class="submit">
+    <%= form.submit "Add Group", class: "btn btn-primary" %>
+  </div>
+<% end %>

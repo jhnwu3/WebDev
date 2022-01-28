@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href='style.css'>
+    </head>
+    <body onload="startGame()">
+        <div class="row">
+            <div id="player">
+            </div>
+            <div class="left column">
+                Scoreboard
+                <table id="scores">
+                    <tr> 
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="center column">
+                <div class="row">
+                    <div class="topleft">
+                        <h2 id="notification">SET</h2>
+                    </div>
+                    <div class="topright">
+                        <h1 id="timer">00:00:00</h1>
+                    </div>
+                </div>
+                <table id="cardsOnTable">
+                    <tr id="r0">
+                        <td id="cell0" onclick="selectCard(this, 0)"></td>
+                        <td id="cell1" onclick="selectCard(this, 1)"></td>
+                        <td id="cell2" onclick="selectCard(this, 2)"></td>
+                    </tr>
+                    <tr id="r1">
+                        <td id="cell3" onclick="selectCard(this, 3)"></td>
+                        <td id="cell4" onclick="selectCard(this, 4)"></td>
+                        <td id="cell5" onclick="selectCard(this, 5)"></td>
+                    </tr>
+                    <tr id="r2">
+                        <td id="cell6" onclick="selectCard(this, 6)"></td>
+                        <td id="cell7" onclick="selectCard(this, 7)"></td>
+                        <td id="cell8" onclick="selectCard(this, 8)"></td>
+                    </tr>
+                    <tr id="r3">
+                        <td id="cell9" onclick="selectCard(this, 9)"></td>
+                        <td id="cell10" onclick="selectCard(this, 10)"></td>
+                        <td id="cell11" onclick="selectCard(this, 11)"></td>
+                    </tr>
+                </table>
+                <div class="bottom">
+                    <table>
+                        <tr>
+                            <td id="deck" onClick="dealBoard()">
+                                Click To Check Board
+                            </td>
+                        </tr>
+                    </table>
+                    <p id="deckCount"></p>
+                </div>
+            </div>
+            <div id="prevColumn" class="right column">
+                <h1>Previous Selection</h1>
+                <table id="previousSelection">
+                    <tr id="r0">
+                        <td id="ps0"></td>
+                    </tr>
+                    <tr id="r1">
+                        <td id="ps1"></td>
+                    </tr>
+                    <tr id="r2">
+                        <td id="ps2"></td>
+                    </tr>
+                </table>
+                <h2 id="setStatus"></h2>
+                <ul id="reasons"></ul>
+            </div>
+        </div>
+        <div id="homePage">
+            <button type = "button" onclick= "window.location.href ='index.html'">Home</button>
+        </div>
+    </body>
+    <script src="game.js"></script>
+</html>

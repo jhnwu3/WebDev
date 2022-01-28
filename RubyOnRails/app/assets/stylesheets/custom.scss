@@ -1,0 +1,56 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*navbar*/
+
+nav .container-fluid{
+    background-color:#BB0000;
+    max-width: 1200px;
+}
+
+nav .nav-link{
+    font-size: large;
+    color:white !important;
+}
+
+nav .btn{
+
+  padding-top: 2px;
+  top:1px;
+  text-align: center;
+}
+
+
+
+/*body*/
+*{
+    margin: 0;
+}
+
+.content{
+    
+    position:relative;
+    height: 100vh;
+}
+.content::before{
+    content: "";
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/c1/Ohio_State_Buckeyes_logo.svg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    opacity: .3;
+    z-index: -1;
+}
+#footer{
+    bottom:0;
+    color:#666666;
+    text-align: center;
+}

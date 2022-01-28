@@ -1,0 +1,35 @@
+<h1>Admin Sign Up</h1>
+<%= form_with model: @admin, url: sign_up_path do |form| %>
+    
+    <% if @admin.errors.any? %>
+        <div class="alert alert-danger">
+            <% @admin.errors.full_messages.each do |message| %>
+                <div> <%= message %> </div>
+            <% end %>
+        </div>
+    <% end %> 
+
+    <div class="mb-3">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control", placeholder: "your name" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: "form-control", placeholder: "lname.2@osu.edu" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "form-control", placeholder: "1234" %>
+    </div>
+    <div  class="mb-3">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "1234" %>
+    </div>
+    <div class="mb-3">
+        <%= form.submit "Sign Up", class: "btn btn-primary" %>
+    </div>
+<% end %>
+
+<div>
+<%= link_to "Already have an account?", sign_in_path, class: "btn btn-secondary" %>
+</div>

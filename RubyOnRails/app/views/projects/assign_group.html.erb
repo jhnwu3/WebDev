@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+<% if flash[:success] %>
+      <div class="alert alert-primary" id="alert">
+         <%= flash[:success] %> 
+      </div>
+<% end %>
+<%
+=begin%>
+  Specialized styling for the double side by side tables. 
+<%
+=end%>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+
+<h2>Assign Groups to Projects</h2>
+
+<div class="row">
+  <div class="column">
+    <h2> List of Groups </h2>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tbody>
+                <% @groups.each do |group| %>
+                <tr>
+                    <td><%= group.name %></td>
+                    <td><%= link_to 'Assign Group', assign_group_path(gid: group.id, pid: @project.id), method: :post, class: "btn btn-danger"%></td>
+                </tr>
+                <% end %>
+        </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <h2> Assigned Groups </h2>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tbody>
+                <% @projectGroups.each do |group| %>
+                <tr>
+                    <td><%= group.name %></td>
+                    <td><%= link_to 'Remove', assign_group_path(gid: group.id, pid: @project.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%></td>
+                </tr>
+                <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'Back', project_url(id: @project.id),class: "btn btn-secondary" %>
